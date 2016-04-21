@@ -7,10 +7,26 @@ Ext.define('MVC.controller.LoginController', {
         'MVC.view.Main'
     ],
 
-    onLoginClick: function () {
+    views:[
+      'MVC.view.Login'
+    ],
+
+    init : function() {
+        //control function makes it easy to listen to events on
+        //your view classes and take some action with a handler function
+        this.control({
+            //when you click Submit button
+            'login button[action=login]' : {
+                click : this.onLoginClick
+            }
+        });
+    },
+
+    onLoginClick: function (button) {
 
         // This would be the ideal location to verify the user's credentials via
         // a server-side lookup. We'll just move forward for the sake of this example.
+        var form = button.up('form').getForm();
         Ext.Ajax.request({
             url: 'Login',
             method: 'POST',

@@ -31,9 +31,7 @@ Ext.define('MVC.view.Login', {
         buttons: [{
             text: 'Login',
             formBind: true,
-            listeners: {
-                click: 'onLoginClick'
-            }
+            action: 'login'
         },
             {
                 text: 'Register',
