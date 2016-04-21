@@ -1,35 +1,48 @@
 Ext.define('MVC.view.Detail', {
-    extend : 'Ext.form.Panel',
-    xtype  : 'edit',
-    
-    title   : 'Detail Panel',
-    frame   : true,
-    padding : 10,
-    
-    items : [
+    extend: 'Ext.form.Panel',
+    xtype: 'edit',
+
+    title: 'Note',
+    frame: true,
+    padding: 10,
+    items: [
         {
-            xtype      : 'textfield',
-            name       : 'name',
-            fieldLabel : 'Name'
-        },
-		{
-            xtype      : 'textfield',
-            name       : 'email',
-            fieldLabel : 'Email'
+            xtype: 'textfield',
+            name: 'name',
+            fieldLabel: 'Name',
+            emptyText: 'New note'
         },
         {
-            xtype      : 'textfield',
-            name       : 'phone',
-            fieldLabel : 'Phone'
+            xtype: 'datefield',
+            name: 'createDate',
+            fieldLabel: 'Creation date',
+            emptyText: 'Will be current date',
+            format:'d-m-Y',
+            readOnly: true
         },
         {
-            xtype : 'hiddenfield',
-            name  : 'id'
+            xtype: 'datefield',
+            name: 'modifiedDate',
+            fieldLabel: 'Current date',
+            readOnly: true,
+            format:'d-m-Y',
+            value: new Date()
+        }, {
+            xtype: 'textarea',
+            name: 'noteText',
+            fieldLabel: 'Note text',
+            width: '100%'
         },
         {
-            xtype  : 'button',
-            text   : 'Save',
-            itemId : 'SaveRecord'
+            xtype: 'button',
+            text: 'Clear',
+            margin: '0 10 0 0',
+            itemId: 'ClearButton'
+        },
+        {
+            xtype: 'button',
+            text: 'Save',
+            itemId: 'SaveRecord'
         }
     ]
 });

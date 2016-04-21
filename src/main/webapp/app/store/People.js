@@ -11,23 +11,27 @@ Ext.define('MVC.store.People', {
     data : [
         { 
             'name'  : 'Lisa',  
-            'email' : 'lisa@simpsons.com',
-            'phone' : '555-111-1224' 
+            'createDate' : '10-23-1234',
+            'modifiedDate' : '04-21-2016',
+            'noteText' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere odio leo, at mollis libero porta ut. Etiam mauris ipsum, iaculis a imperdiet sit amet, bibendum id urna. Proin tempus lectus nisl, a tristique est tempor quis. Etiam interdum urna dolor, non gravida nulla laoreet a. Donec id velit metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu purus sed nisl commodo malesuada et ut velit. Quisque ut lorem magna. Nulla eget odio est. Sed ultrices turpis quam. Aliquam quis sollicitudin dolor.'
         },
         { 
             'name'  : 'Bart',  
-            'email' : 'bart@simpsons.com',
-            'phone' : '555-222-1234'
+            'createDate' : '10-24-1234',
+            'modifiedDate' : '04-3-2016',
+            'noteText' : 't, bibendum id urna. Proin tempus lectus nisl, non gicitudin dolor.'
         },
         { 
             'name'  : 'Homer', 
-            'email' : 'homer@simpsons.com',
-            'phone' : '555-222-1244'
+            'createDate' : '10-25-1234',
+            'modifiedDate' : '12-13-2416',
+            'noteText' : 'qwerty'
         },
         { 
             'name'  : 'Marge', 
-            'email' : 'marge@simpsons.com',
-            'phone' : '555-222-1254'
+            'createDate' : '10-26-1234',
+            'modifiedDate' : '04-21-2016',
+            'noteText' : 'qwerty123123'
         }
     ]
 });

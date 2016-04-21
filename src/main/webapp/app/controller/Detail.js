@@ -18,7 +18,7 @@ Ext.define('MVC.controller.Detail', {
         
         //see if the record exists
         var store = Ext.getStore('People');
-        console.log(data.id)
+        console.log(data.id);
         var record = store.getById(data.id);
 
         if (!record) {

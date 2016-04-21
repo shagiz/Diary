@@ -2,18 +2,18 @@ Ext.define('MVC.Application', {
     extend: 'Ext.app.Application',
 
     name: 'MVC',
-    views : [
-        'Master',
-        'Detail'
+
+    requires: [
+        'MVC.view.Login'
     ],
 
-    controllers : [
-        'Master',
-        'Detail'
+    controllers: [
+        'MVC.controller.Master',
+        'MVC.controller.Detail'
     ],
 
-    stores : [
-        'People'
+    stores: [
+        'MVC.store.People'
     ],
 
     launch: function () {

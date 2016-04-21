@@ -3,7 +3,7 @@ Ext.define('MVC.view.Login', {
     xtype: 'login',
 
     requires: [
-         'MVC.controller.LoginController',
+        'MVC.controller.LoginController',
         'Ext.form.Panel'
     ],
 
@@ -32,12 +32,12 @@ Ext.define('MVC.view.Login', {
             text: 'Login',
             formBind: true,
             listeners: {
-                click:'onLoginClick'
+                click: 'onLoginClick'
             }
         },
             {
                 text: 'Register',
-                listeners:{
+                listeners: {
                     click: 'onRegisterClick'
                 }
             }]

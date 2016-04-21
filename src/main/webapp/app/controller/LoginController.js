@@ -3,7 +3,8 @@ Ext.define('MVC.controller.LoginController', {
     alias: 'controller.login',
 
     requires: [
-        'MVC.view.Register'
+        'MVC.view.Register',
+        'MVC.view.Main'
     ],
 
     onLoginClick: function() {
@@ -19,7 +20,7 @@ Ext.define('MVC.controller.LoginController', {
 
         // Add the main view to the viewport
         Ext.create({
-            xtype: 'app-main'
+            xtype: 'main'
         });
 
     },

@@ -7,15 +7,15 @@ Ext.define('MVC.model.Person', {
             type : 'string'
         },
         {
-            name : 'email',
-            type : 'string'
+            name : 'createDate',
+            type : 'date'
         },
         {
-            name : 'phone',
-            type : 'string'
+            name : 'modifiedDate',
+            type : 'date'
         },
         {
-            name : 'id',
+            name : 'noteText',
             type : 'string'
         }
     ]

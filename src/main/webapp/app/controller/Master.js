@@ -3,7 +3,7 @@ Ext.define('MVC.controller.Master', {
     
     init: function() {
          this.control({
-             'mvc-MasterView': {
+             'notes': {
                  select : this.onGridSelect
              }
          });
