@@ -17,7 +17,7 @@ Ext.define('MVC.view.Detail', {
             name: 'createDate',
             fieldLabel: 'Creation date',
             emptyText: 'Will be current date',
-            format:'d-m-Y',
+            format: 'd-m-Y',
             readOnly: true
         },
         {
@@ -25,7 +25,7 @@ Ext.define('MVC.view.Detail', {
             name: 'modifiedDate',
             fieldLabel: 'Current date',
             readOnly: true,
-            format:'d-m-Y',
+            format: 'd-m-Y',
             value: new Date()
         }, {
             xtype: 'textarea',
@@ -37,7 +37,10 @@ Ext.define('MVC.view.Detail', {
             xtype: 'button',
             text: 'Clear',
             margin: '0 10 0 0',
-            itemId: 'ClearButton'
+            itemId: 'ClearButton',
+            handler: function () {
+                this.up('edit').getForm().reset();
+            }
         },
         {
             xtype: 'button',
@@ -45,4 +48,5 @@ Ext.define('MVC.view.Detail', {
             itemId: 'SaveRecord'
         }
     ]
+
 });

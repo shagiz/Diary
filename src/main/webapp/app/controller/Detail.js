@@ -3,7 +3,7 @@ Ext.define('MVC.controller.Detail', {
     
     init : function() {
         this.control({
-            'mvc-DetailView > button#SaveRecord' : {
+            'edit > button#SaveRecord' : {
                 click : this.onSaveButtonClick
             }
         });
@@ -11,7 +11,7 @@ Ext.define('MVC.controller.Detail', {
     
     onSaveButtonClick : function(btn) {
         //get reference to the form
-        var detailView = btn.up('mvc-DetailView');
+        var detailView = btn.up('edit');
         
 		//get the form inputs
         var data = detailView.getValues();
