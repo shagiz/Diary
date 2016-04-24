@@ -6,24 +6,20 @@ import javax.persistence.*;
  * Created by Shagi on 21.04.2016.
  */
 @Entity
-@Table(name = "users", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "ID"),
-        @UniqueConstraint(columnNames = "Login") })
-public class UserMock {
+@Table(name = "users")
+public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", unique = true, nullable = false)
-    private  long id;
-    @Column(name = "Login", unique = true,nullable = false)
+    @Column(length = 30)
     private String login;
+    @Column(nullable = false, length = 30)
     private String password;
 
-    public long getId() {
-        return id;
+    public User() {
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
     }
 
     public String getLogin() {

@@ -19,7 +19,8 @@ Ext.define("MVC.view.Register", {
             xtype: 'textfield',
             name: 'username',
             emptyText: 'Username',
-            allowBlank: false
+            allowBlank: false,
+            id: 'username'
         }, {
             xtype: 'textfield',
             id: 'pass1',

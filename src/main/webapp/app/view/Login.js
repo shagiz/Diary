@@ -18,7 +18,7 @@ Ext.define('MVC.view.Login', {
         reference: 'form',
         items: [{
             xtype: 'textfield',
-            name: 'username',
+            name: 'login',
             emptyText: 'Username',
             allowBlank: false
         }, {

@@ -27,8 +27,9 @@ Ext.define('MVC.controller.LoginController', {
         // This would be the ideal location to verify the user's credentials via
         // a server-side lookup. We'll just move forward for the sake of this example.
         var form = button.up('form').getForm();
+
         Ext.Ajax.request({
-            url: 'Login',
+            url: 'login',
             method: 'POST',
             params: {
                 loginData: Ext.encode(form.getValues())
@@ -39,16 +40,14 @@ Ext.define('MVC.controller.LoginController', {
             //method to call when the request is a failure
             failure: this.onLoginFailure
         });
+
         // Set the localStorage value to true
         //localStorage.setItem("TutorialLoggedIn", true);
 
         // Remove Login Window
-        this.getView().destroy();
 
         // Add the main view to the viewport
-        Ext.create({
-            xtype: 'main'
-        });
+
 
     },
 
@@ -70,6 +69,12 @@ Ext.define('MVC.controller.LoginController', {
         response = Ext.decode(response.responseText);
         if (response.success) {
             Ext.MessageBox.alert('Successful Login', response.message);
+
+            this.getView().destroy();
+
+            Ext.create({
+                xtype: 'main'
+            });
         }
         else {
             Ext.MessageBox.alert('Login failed', response.message);
