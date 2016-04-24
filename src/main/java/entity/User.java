@@ -11,7 +11,7 @@ public class User {
     @Id
     @Column(length = 30)
     private String login;
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false)
     private String password;
 
     public User() {

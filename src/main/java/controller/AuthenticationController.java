@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import entity.User;
 import service.AuthenticationService;
+import util.MD5Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,15 +31,11 @@ public class AuthenticationController extends HttpServlet {
         String login = userInfo.getLogin();
         String password = userInfo.getPassword();
 
+        //генерируем соленый хэш пароля
+        password = MD5Util.md5HashWithSalt(password);
+
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
-        response.setHeader("Cache-control", "no-cache, no-store");
-        response.setHeader("Pragma", "no-cache");
-        response.setHeader("Expires", "-1");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "POST,GET");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setHeader("Access-Control-Max-Age", "86400");
 
         JsonObject myObj = new JsonObject();
 
