@@ -7,5 +7,6 @@ import java.io.Serializable;
  */
 public interface UserDao<T, Login extends Serializable> {
     void persist(T user);
+
     T findUserByLogin(Login login);
 }

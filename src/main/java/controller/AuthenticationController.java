@@ -40,18 +40,15 @@ public class AuthenticationController extends HttpServlet {
         JsonObject myObj = new JsonObject();
 
         //nothing was sent
-        if (login == null || password == null) {
-            myObj.addProperty("success", false);
-            myObj.addProperty("message", "Please send login and Password!");
+
+        if (authenticationService.checkUserData(login, password)) {
+            myObj.addProperty("success", true);
+            myObj.addProperty("message", "Access granted!");
         } else {
-            if (authenticationService.checkUserData(login, password)) {
-                myObj.addProperty("success", true);
-                myObj.addProperty("message", "Access granted!");
-            } else {
-                myObj.addProperty("success", false);
-                myObj.addProperty("message", "Looks like you forgot your login infomartion");
-            }
+            myObj.addProperty("success", false);
+            myObj.addProperty("message", "Looks like you forgot your login information");
         }
+
 
         out.println(myObj.toString());
         out.close();

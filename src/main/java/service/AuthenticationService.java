@@ -15,10 +15,13 @@ public class AuthenticationService {
         userDao = new UserDaoImpl();
     }
 
-    public void persistNewUser(User user) {
+    public boolean persistNewUser(User user) {
 
         if (userDao.findUserByLogin(user.getLogin()) == null) {
             userDao.persist(user);
+            return true;
+        }else {
+            return false;
         }
     }
 

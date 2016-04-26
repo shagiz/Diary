@@ -19,7 +19,7 @@ import java.io.PrintWriter;
 public class RegistrationController extends HttpServlet {
     private AuthenticationService authenticationService;
 
-    public RegistrationController(){
+    public RegistrationController() {
         authenticationService = new AuthenticationService();
     }
 
@@ -39,14 +39,11 @@ public class RegistrationController extends HttpServlet {
         JsonObject myObj = new JsonObject();
 
         //nothing was sent
-        if (login == null || password == null) {
-            myObj.addProperty("success", false);
-            myObj.addProperty("message", "Please enter login and Password!");
-        } else {
-            User user = new User(login, password);
-            authenticationService.persistNewUser(user);
-            myObj.addProperty("success",true);
-        }
+
+        User user = new User(login, password);
+        boolean status = authenticationService.persistNewUser(user);
+        myObj.addProperty("success", status);
+
 
         out.println(myObj.toString());
         out.close();

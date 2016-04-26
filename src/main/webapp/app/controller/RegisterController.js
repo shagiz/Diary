@@ -24,10 +24,10 @@ Ext.define("MVC.controller.RegisterController", {
                     password: pass1
                 },
                 scope: this,
-                //method to call when the request is successful
-                success: this.onRegisterSuccess,
                 //method to call when the request is a failure
-                failure: this.onLoginFailure
+                failure: this.onRegisterFailure,
+                //method to call when the request is successful
+                success: this.onRegisterSuccess
             });
            // Ext.MessageBox.alert('Успешно', 'Регистрация завршена.'+login);
         } else {
@@ -40,9 +40,12 @@ Ext.define("MVC.controller.RegisterController", {
 
         Ext.create({
             xtype: 'login'
-        }).show()
+        }).show();
 
         Ext.MessageBox.alert("Success","Регистрация завершена!")
-    }
+    },
 
+    onRegisterFailure : function(){
+        Ext.MessageBox.aler("Fail","Такой пользователь существует!")
+    }
 });

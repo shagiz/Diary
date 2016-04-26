@@ -35,6 +35,12 @@ Ext.define('MVC.view.Detail', {
         },
         {
             xtype: 'button',
+            text: 'Delete',
+            itemId: 'DeleteButton',
+            margin: '0 10 0 0'
+        },
+        {
+            xtype: 'button',
             text: 'Clear',
             margin: '0 10 0 0',
             itemId: 'ClearButton',
