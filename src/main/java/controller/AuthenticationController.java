@@ -49,7 +49,6 @@ public class AuthenticationController extends HttpServlet {
             myObj.addProperty("message", "Looks like you forgot your login information");
         }
 
-
         out.println(myObj.toString());
         out.close();
     }

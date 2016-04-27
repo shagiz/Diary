@@ -9,8 +9,14 @@ Ext.define('MVC.store.TestStore', {
     model   : 'MVC.model.Note',
     autoLoad: false,
     proxy: {
-        type: 'rest',
+        type : 'rest',
         url: 'rest/notes',
+        actionMethods : {
+            create  : 'POST',
+            read    : 'GET',
+            update  : 'PUT',
+            destroy : 'DELETE'
+        },
         reader: {
             type: 'json',
             rootProperty: 'data'
@@ -18,5 +24,6 @@ Ext.define('MVC.store.TestStore', {
         writer: {
             type: 'json'
         }
-    }
+    },
+    autoSave: true
 });

@@ -23,8 +23,8 @@ public class NoteRestService {
 
     @POST
     @Consumes("application/json")
-    public void postNote(){
-
+    public String postNote(){
+        return "AAAAAAAAAAAaa";
     }
 
     @PUT
