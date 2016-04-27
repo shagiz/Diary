@@ -1,12 +1,12 @@
-Ext.define('MVC.store.People', {
+Ext.define('MVC.store.Notes', {
     extend  : 'Ext.data.Store',
 
     requires : [
-        'MVC.model.Person'
+        'MVC.model.Note'
     ],
     
-    storeId : 'People',
-    model   : 'MVC.model.Person',
+    storeId : 'Notes',
+    model   : 'MVC.model.Note',
     
     data : [
         { 

@@ -1,6 +1,6 @@
-Ext.define('MVC.view.Detail', {
+Ext.define('MVC.view.Edit', {
     extend: 'Ext.form.Panel',
-    xtype: 'edit',
+    xtype: 'editForm',
 
     title: 'Note',
     frame: true,
@@ -25,11 +25,13 @@ Ext.define('MVC.view.Detail', {
             name: 'modifiedDate',
             fieldLabel: 'Current date',
             readOnly: true,
+            itemID: 'currentDateField',
             format: 'd-m-Y',
             value: new Date()
         }, {
             xtype: 'textarea',
             name: 'noteText',
+            height: 150,
             fieldLabel: 'Note text',
             width: '100%'
         },
@@ -45,7 +47,7 @@ Ext.define('MVC.view.Detail', {
             margin: '0 10 0 0',
             itemId: 'ClearButton',
             handler: function () {
-                this.up('edit').getForm().reset();
+                this.up('editForm').getForm().reset();
             }
         },
         {

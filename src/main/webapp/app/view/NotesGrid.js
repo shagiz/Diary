@@ -1,10 +1,10 @@
-Ext.define('MVC.view.Master', {
+Ext.define('MVC.view.NotesGrid', {
     extend: 'Ext.grid.Panel',
-    xtype: 'notes',
+    xtype: 'notesGrid',
 
     title: 'Note-list',
 
-    store: 'People',
+    store: 'Notes',
 
     columns: [
         {

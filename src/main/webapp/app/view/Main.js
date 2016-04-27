@@ -2,8 +2,8 @@ Ext.define('MVC.view.Main', {
     extend: 'Ext.container.Viewport',
     xtype: 'main',
     requires: [
-        'MVC.view.Master',
-        'MVC.view.Detail'
+        'MVC.view.NotesGrid',
+        'MVC.view.Edit'
     ],
 
     layout : {
@@ -12,10 +12,10 @@ Ext.define('MVC.view.Main', {
     },
 
     items: [{
-        xtype: 'notes',
+        xtype: 'notesGrid',
         flex: 2
     },{
-        xtype: 'edit',
+        xtype: 'editForm',
         flex: 1
     }
 

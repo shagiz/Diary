@@ -8,12 +8,12 @@ Ext.define('MVC.Application', {
     ],
 
     controllers: [
-        'MVC.controller.Master',
-        'MVC.controller.Detail'
+        'MVC.controller.Notes',
+        'MVC.controller.Edit'
     ],
 
     stores: [
-        'MVC.store.People'
+        'MVC.store.Notes'
     ],
 
     launch: function () {

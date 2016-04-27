@@ -1,9 +1,9 @@
-Ext.define('MVC.controller.Detail', {
+Ext.define('MVC.controller.Edit', {
     extend : 'Ext.app.Controller',
     
     init : function() {
         this.control({
-            'edit > button#SaveRecord' : {
+            'editForm > button#SaveRecord' : {
                 click : this.onSaveButtonClick
             }
         });
@@ -11,13 +11,13 @@ Ext.define('MVC.controller.Detail', {
     
     onSaveButtonClick : function(btn) {
         //get reference to the form
-        var detailView = btn.up('edit');
+        var detailView = btn.up('editForm');
         
 		//get the form inputs
         var data = detailView.getValues();
         
         //see if the record exists
-        var store = Ext.getStore('People');
+        var store = Ext.getStore('Notes');
         console.log(data.id);
         var record = store.getById(data.id);
 
