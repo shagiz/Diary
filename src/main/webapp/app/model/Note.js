@@ -1,22 +1,26 @@
 Ext.define('MVC.model.Note', {
-    extend : 'Ext.data.Model',
-    
-    fields : [
+    extend: 'Ext.data.Model',
+
+    fields: [
         {
-            name : 'name',
-            type : 'string'
+            name: 'id',
+            type: 'string'
         },
         {
-            name : 'createDate',
-            type : 'date'
+            name: 'title',
+            type: 'string'
         },
         {
-            name : 'modifiedDate',
-            type : 'date'
+            name: 'created',
+            type: 'date'
         },
         {
-            name : 'noteText',
-            type : 'string'
+            name: 'updated',
+            type: 'date'
+        },
+        {
+            name: 'text',
+            type: 'string'
         }
     ]
 });

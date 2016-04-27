@@ -11,6 +11,8 @@ Ext.define('MVC.controller.LoginController', {
       'MVC.view.Login'
     ],
 
+    store: 'TestStore',
+
     init : function() {
         //control function makes it easy to listen to events on
         //your view classes and take some action with a handler function
@@ -40,15 +42,6 @@ Ext.define('MVC.controller.LoginController', {
             //method to call when the request is a failure
             failure: this.onLoginFailure
         });
-
-        // Set the localStorage value to true
-        //localStorage.setItem("TutorialLoggedIn", true);
-
-        // Remove Login Window
-
-        // Add the main view to the viewport
-
-
     },
 
     onRegisterClick: function () {
@@ -69,12 +62,16 @@ Ext.define('MVC.controller.LoginController', {
         response = Ext.decode(response.responseText);
         if (response.success) {
             Ext.MessageBox.alert('Successful Login', response.message);
-
+            var store = Ext.create('MVC.store.TestStore');
+            store.load({
+                params:{login:'shagi'}
+            });
             this.getView().destroy();
 
             Ext.create({
                 xtype: 'main'
             });
+
         }
         else {
             Ext.MessageBox.alert('Login failed', response.message);

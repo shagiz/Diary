@@ -7,17 +7,21 @@ Ext.define('MVC.view.Edit', {
     padding: 10,
     items: [
         {
+            xtype : 'hiddenfield',
+            name  : 'id'
+        },
+        {
             xtype: 'textfield',
-            name: 'name',
-            fieldLabel: 'Name',
+            name: 'title',
+            fieldLabel: 'Title',
             emptyText: 'New note'
         },
         {
             xtype: 'datefield',
-            name: 'createDate',
+            name: 'created',
             fieldLabel: 'Creation date',
             emptyText: 'Will be current date',
-            format: 'd-m-Y',
+            format: 'd-m-Y H:i',
             readOnly: true
         },
         {
@@ -26,11 +30,11 @@ Ext.define('MVC.view.Edit', {
             fieldLabel: 'Current date',
             readOnly: true,
             itemID: 'currentDateField',
-            format: 'd-m-Y',
+            format: 'd-m-Y H:i',
             value: new Date()
         }, {
             xtype: 'textarea',
-            name: 'noteText',
+            name: 'text',
             height: 150,
             fieldLabel: 'Note text',
             width: '100%'

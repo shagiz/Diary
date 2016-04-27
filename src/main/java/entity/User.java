@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
     @Id
-    @Column(length = 30)
+    @Column(length = 127)
     private String login;
     @Column(nullable = false, length = 127)
     private String password;

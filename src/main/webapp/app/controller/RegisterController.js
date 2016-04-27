@@ -35,17 +35,22 @@ Ext.define("MVC.controller.RegisterController", {
         }
     },
 
-    onRegisterSuccess : function(){
-        this.getView().destroy();
+    onRegisterSuccess : function(response){
+        response = Ext.decode(response.responseText);
+        if (response.success) {
+            this.getView().destroy();
 
-        Ext.create({
-            xtype: 'login'
-        }).show();
+            Ext.create({
+                xtype: 'login'
+            }).show();
 
-        Ext.MessageBox.alert("Success","Регистрация завершена!")
+            Ext.MessageBox.alert("Success", "Регистрация завершена!")
+        }else {
+            Ext.MessageBox.alert("Fail","Такой пользователь существует!")
+        }
     },
 
     onRegisterFailure : function(){
-        Ext.MessageBox.aler("Fail","Такой пользователь существует!")
+        Ext.MessageBox.alert("Ошибка","Ошибка!")
     }
 });

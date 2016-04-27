@@ -7,36 +7,38 @@ Ext.define('MVC.view.NotesGrid', {
     //  store: 'Notes',
     store: 'TestStore',
 
-    initComponent: function(){
+    /*initComponent: function(){
         this.callParent();
         this.on('render', this.loadStore, this);
     },
 
     loadStore: function() {
-        this.getStore().load();
-    },
+        this.getStore().load({
+            params:{login:'shagi'}
+        });
+    },*/
 
     columns: [
         {
-            text: 'Name',
-            dataIndex: 'name',
+            text: 'Title',
+            dataIndex: 'title',
             flex: 1
         },
         {
             text: 'Creation Date',
             xtype: 'datecolumn',
-            format: 'd-m-Y',
-            dataIndex: 'createDate',
+            format: 'd-m-Y H:i',
+            dataIndex: 'created',
             flex: 1
         }, {
             text: 'Last Modified',
             xtype: 'datecolumn',
-            format: 'd-m-Y',
-            dataIndex: 'modifiedDate',
+            format: 'd-m-Y H:i',
+            dataIndex: 'updated',
             flex: 1
         }, {
             text: 'Text',
-            dataIndex: 'noteText',
+            dataIndex: 'text',
             flex: 3
         }
     ]

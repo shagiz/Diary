@@ -1,6 +1,7 @@
 Ext.define('MVC.controller.Edit', {
     extend : 'Ext.app.Controller',
-    
+
+
     init : function() {
         this.control({
             'editForm > button#SaveRecord' : {
@@ -17,7 +18,7 @@ Ext.define('MVC.controller.Edit', {
         var data = detailView.getValues();
         
         //see if the record exists
-        var store = Ext.getStore('Notes');
+        var store = Ext.getStore('TestStore');
         console.log(data.id);
         var record = store.getById(data.id);
 
