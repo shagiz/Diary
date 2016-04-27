@@ -62,10 +62,12 @@ Ext.define('MVC.controller.LoginController', {
         response = Ext.decode(response.responseText);
         if (response.success) {
             Ext.MessageBox.alert('Successful Login', response.message);
+
+
             var store = Ext.create('MVC.store.TestStore');
-            store.load({
-                params:{login:'shagi'}
-            });
+            store.load();
+
+
             this.getView().destroy();
 
             Ext.create({

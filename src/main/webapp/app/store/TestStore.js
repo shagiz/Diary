@@ -24,6 +24,5 @@ Ext.define('MVC.store.TestStore', {
         writer: {
             type: 'json'
         }
-    },
-    autoSave: true
+    }
 });

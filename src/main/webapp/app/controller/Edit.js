@@ -26,26 +26,37 @@ Ext.define('MVC.controller.Edit', {
         var record = store.getById(data.id);
 
         if (!record) {
-            record = Ext.create('MVC.model.Note',{
-                title : data.title,
-                created : new Date(),
-                updated : new Date(),
-                text : data.text
+            record = Ext.create('MVC.model.Note', {
+                title: data.title,
+                created: new Date(),
+                updated: new Date(),
+                text: data.text
             });
+            Ext.MessageBox.alert('Created', data.title);
 
             store.insert(0, record);
             store.sync();
-            Ext.MessageBox.alert('QQQQ', record.id);
             return;
         }
+
         record.set(data);
+
         store.sync();
         //manually update the record
         detailView.updateRecord();
     },
 
-    onDeleteButtonClick: function () {
-        var store = Ext.getStore(data.id);
+    onDeleteButtonClick: function (btn) {
 
+        //get reference to the form
+        var detailView = btn.up('editForm');
+
+        //get the form inputs
+        var data = detailView.getValues();
+
+        var store = Ext.getStore('TestStore');
+        var record = store.getById(data.id);
+        store.remove(record);
+        store.sync();
     }
 });

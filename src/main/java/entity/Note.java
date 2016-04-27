@@ -1,12 +1,14 @@
 package entity;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
  * Created by Shagi on 26.04.2016.
  */
 @Entity
+@XmlRootElement
 @NamedQuery(name = "Note.getAll", query = "select n from Note n where user=:login")
 public class Note {
     @Id

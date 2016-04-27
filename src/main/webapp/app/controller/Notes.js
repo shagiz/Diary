@@ -13,7 +13,7 @@ Ext.define('MVC.controller.Notes', {
         // grab a reference to the Detail view... 
         // we could have used a controller "ref", but those can also be problematic
         var detailView = Ext.ComponentQuery.query('editForm')[0];
-        
+
         //set the form record manually
         detailView.loadRecord(record);
     }

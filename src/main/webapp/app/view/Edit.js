@@ -26,10 +26,16 @@ Ext.define('MVC.view.Edit', {
         },
         {
             xtype: 'datefield',
+            hidden:true,
+            name: 'updated',
+            format: 'd-m-Y H:i',
+            value: new Date()
+        },
+        {
+            xtype: 'datefield',
             name: 'modifiedDate',
             fieldLabel: 'Current date',
             readOnly: true,
-            itemID: 'currentDateField',
             format: 'd-m-Y H:i',
             value: new Date()
         }, {

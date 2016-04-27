@@ -20,6 +20,11 @@ Ext.define('MVC.view.NotesGrid', {
 
     columns: [
         {
+            text: 'id',
+            dataIndex: 'id',
+            hidden: true
+        },
+        {
             text: 'Title',
             dataIndex: 'title',
             flex: 1
