@@ -13,14 +13,6 @@
         <servlet-name>RegistrationController</servlet-name>
         <servlet-class>controller.RegistrationController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>NoteRestService</servlet-name>
-        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-        <init-param>
-            <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>controllers</param-value>
-        </init-param>
-    </servlet>
 
     <servlet-mapping>
         <servlet-name>AuthenticationController</servlet-name>
@@ -30,10 +22,7 @@
         <servlet-name>RegistrationController</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NoteRestService</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
-    </servlet-mapping>
+
 
 
 </web-app>

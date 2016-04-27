@@ -4,7 +4,17 @@ Ext.define('MVC.view.NotesGrid', {
 
     title: 'Note-list',
 
-    store: 'Notes',
+    //  store: 'Notes',
+    store: 'TestStore',
+
+    initComponent: function(){
+        this.callParent();
+        this.on('render', this.loadStore, this);
+    },
+
+    loadStore: function() {
+        this.getStore().load();
+    },
 
     columns: [
         {
@@ -18,12 +28,12 @@ Ext.define('MVC.view.NotesGrid', {
             format: 'd-m-Y',
             dataIndex: 'createDate',
             flex: 1
-        },{
+        }, {
             text: 'Last Modified',
             xtype: 'datecolumn',
             format: 'd-m-Y',
             dataIndex: 'modifiedDate',
-            flex:1
+            flex: 1
         }, {
             text: 'Text',
             dataIndex: 'noteText',

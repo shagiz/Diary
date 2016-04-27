@@ -6,6 +6,8 @@ Ext.define('MVC.view.Main', {
         'MVC.view.Edit'
     ],
 
+
+
     layout : {
         type  : 'hbox',
         align : 'stretch'

@@ -13,7 +13,7 @@ Ext.define('MVC.Application', {
     ],
 
     stores: [
-        'MVC.store.Notes'
+        'MVC.store.TestStore'
     ],
 
     launch: function () {
