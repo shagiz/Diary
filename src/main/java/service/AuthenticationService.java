@@ -5,7 +5,7 @@ import dao.UserDaoImpl;
 import entity.User;
 
 /**
- * Created by Shagi on 23.04.2016.
+ * Сервис аутентификации
  */
 public class AuthenticationService {
 
@@ -15,16 +15,25 @@ public class AuthenticationService {
         userDao = new UserDaoImpl();
     }
 
+    /**
+     * Сохраняем нового пользователя, если такой логин еще не зарегестрирован
+     *
+     * @param user новый пользователь
+     * @return false - если пользователь с таким логином уже существует
+     */
     public boolean persistNewUser(User user) {
 
         if (userDao.findUserByLogin(user.getLogin()) == null) {
             userDao.persist(user);
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
+    /**
+     * Проверяем введеные данные с данными из бд
+     */
     public boolean checkUserData(String login, String password) {
         User user = userDao.findUserByLogin(login);
         return user.getPassword().equals(password);

@@ -5,7 +5,6 @@ Ext.application({
     requires: [
         'MVC.view.Login'
     ]
-
 });
 
 

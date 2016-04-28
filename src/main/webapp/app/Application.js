@@ -17,7 +17,6 @@ Ext.define('MVC.Application', {
     ],
 
     launch: function () {
-        // TODO - Launch the application
         Ext.create('MVC.view.Login', {
             renderTo: document.body
         });

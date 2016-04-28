@@ -8,9 +8,11 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 /**
- * Created by Shagi on 26.04.2016.
+ * Реализация NoteDAO
  */
 public class NoteDaoImpl implements NoteDao<Note, Long> {
+
+    // Получаем EntityManager по еденице "persistence-unit" - "MyPersist"
     public EntityManager em = Persistence.createEntityManagerFactory("MyPersist").createEntityManager();
 
     public void persist(Note note) {
@@ -37,7 +39,7 @@ public class NoteDaoImpl implements NoteDao<Note, Long> {
 
     public List<Note> getUserNotes(String login) {
         return em.createNamedQuery("Note.getAll", Note.class)
-                .setParameter("login",login)
+                .setParameter("login", login)
                 .getResultList();
     }
 }

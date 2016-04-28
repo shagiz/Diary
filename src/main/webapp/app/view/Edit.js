@@ -7,8 +7,8 @@ Ext.define('MVC.view.Edit', {
     padding: 10,
     items: [
         {
-            xtype : 'hiddenfield',
-            name  : 'id'
+            xtype: 'hiddenfield',
+            name: 'id'
         },
         {
             xtype: 'textfield',
@@ -26,7 +26,7 @@ Ext.define('MVC.view.Edit', {
         },
         {
             xtype: 'datefield',
-            hidden:true,
+            hidden: true,
             name: 'updated',
             format: 'd-m-Y H:i',
             value: new Date()

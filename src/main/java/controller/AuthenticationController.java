@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by Shagi on 23.04.2016.
+ * Сервлет аутентификации пользователя
  */
 public class AuthenticationController extends HttpServlet {
     private AuthenticationService authenticationService;
@@ -26,13 +26,14 @@ public class AuthenticationController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // Получаем данные с формы логина
         String loginData = request.getParameter("loginData");
         Gson gson = new Gson();
         User userInfo = gson.fromJson(loginData, User.class);
         String login = userInfo.getLogin();
         String password = userInfo.getPassword();
 
-        //генерируем соленый хэш пароля
+        // Генерируем хэш пароля
         password = MD5Util.md5HashWithSalt(password);
 
         PrintWriter out = response.getWriter();
@@ -40,13 +41,12 @@ public class AuthenticationController extends HttpServlet {
 
         JsonObject myObj = new JsonObject();
 
-        //nothing was sent
-
+        // Проверяем валидность введеных данных, создаем ответ
         if (authenticationService.checkUserData(login, password)) {
             myObj.addProperty("success", true);
             myObj.addProperty("message", "Access granted!");
             HttpSession session = request.getSession();
-            session.setAttribute("login",login);
+            session.setAttribute("login", login);
         } else {
             myObj.addProperty("success", false);
             myObj.addProperty("message", "Looks like you forgot your login information");

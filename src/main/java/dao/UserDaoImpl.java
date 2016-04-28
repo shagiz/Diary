@@ -7,10 +7,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 /**
- * Created by Shagi on 23.04.2016.
+ * Реализация NoteDAO
  */
 public class UserDaoImpl implements UserDao<User, String> {
 
+    // Получаем EntityManager по еденице "persistence-unit" - "MyPersist"
     public EntityManager em = Persistence.createEntityManagerFactory("MyPersist").createEntityManager();
 
     public UserDaoImpl() {
@@ -23,7 +24,7 @@ public class UserDaoImpl implements UserDao<User, String> {
     }
 
     public User findUserByLogin(String login) {
-        return em.find(User.class,login);
+        return em.find(User.class, login);
     }
 
 }

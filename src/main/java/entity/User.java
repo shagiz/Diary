@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by Shagi on 21.04.2016.
+ * Сущность пользователя
  */
 @Entity
 @Table(name = "users")
@@ -18,7 +18,8 @@ public class User {
     @JoinColumn(name = "user_fk", referencedColumnName = "login")
     private List<Note> notes;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String login, String password) {
         this.login = login;

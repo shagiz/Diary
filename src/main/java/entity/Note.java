@@ -5,15 +5,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
- * Created by Shagi on 26.04.2016.
+ * Сущность записи
  */
 @Entity
 @XmlRootElement
+// Запрос на получение списка всех записий для определенного юзера
 @NamedQuery(name = "Note.getAll", query = "select n from Note n where user=:login")
 public class Note {
     @Id
     @GeneratedValue
     private long id;
+    @Column(nullable = false)
     private String title;
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
@@ -33,14 +35,20 @@ public class Note {
         this.user = user_login;
     }
 
+    /**
+     * Устанавливаем текущую дату при создании сущности
+     */
     @PrePersist
     public void setCurrentDate() {
         created = new Date();
         updated = created;
     }
 
+    /**
+     * Устанавливаем текущую дату при обновлении сущности
+     */
     @PreUpdate
-    public void setUpdateDate(){
+    public void setUpdateDate() {
         updated = new Date();
     }
 

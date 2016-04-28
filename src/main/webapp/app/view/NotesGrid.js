@@ -7,17 +7,6 @@ Ext.define('MVC.view.NotesGrid', {
     //  store: 'Notes',
     store: 'TestStore',
 
-    /*initComponent: function(){
-        this.callParent();
-        this.on('render', this.loadStore, this);
-    },
-
-    loadStore: function() {
-        this.getStore().load({
-            params:{login:'shagi'}
-        });
-    },*/
-
     columns: [
         {
             text: 'id',

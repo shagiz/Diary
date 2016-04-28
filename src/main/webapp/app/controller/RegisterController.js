@@ -3,19 +3,23 @@ Ext.define("MVC.controller.RegisterController", {
     alias: 'controller.register',
 
 
-    onCancelClick: function(){
+    onCancelClick: function () {
         this.getView().destroy();
 
         Ext.create({
             xtype: 'login'
         })
     },
-
-    onRegistrationComplete: function(){
+    /**
+     * Получаем данные из формы,
+     * проверяем совпадение паролей,
+     * отправляем на сервер
+     */
+    onRegistrationComplete: function () {
         var pass1 = Ext.getCmp('pass1').getValue();
         var pass2 = Ext.getCmp('pass2').getValue();
         if (pass1 === pass2) {
-           var login = Ext.getCmp('username').getValue();
+            var login = Ext.getCmp('username').getValue();
             Ext.Ajax.request({
                 url: 'register',
                 method: 'POST',
@@ -24,18 +28,15 @@ Ext.define("MVC.controller.RegisterController", {
                     password: pass1
                 },
                 scope: this,
-                //method to call when the request is a failure
                 failure: this.onRegisterFailure,
-                //method to call when the request is successful
                 success: this.onRegisterSuccess
             });
-           // Ext.MessageBox.alert('Успешно', 'Регистрация завршена.'+login);
         } else {
             Ext.MessageBox.alert('Ошибка', 'Пароли должны совпадать.')
         }
     },
 
-    onRegisterSuccess : function(response){
+    onRegisterSuccess: function (response) {
         response = Ext.decode(response.responseText);
         if (response.success) {
             this.getView().destroy();
@@ -45,12 +46,12 @@ Ext.define("MVC.controller.RegisterController", {
             }).show();
 
             Ext.MessageBox.alert("Success", "Регистрация завершена!")
-        }else {
-            Ext.MessageBox.alert("Fail","Такой пользователь существует!")
+        } else {
+            Ext.MessageBox.alert("Fail", "Такой пользователь существует!")
         }
     },
 
-    onRegisterFailure : function(){
-        Ext.MessageBox.alert("Ошибка","Ошибка!")
+    onRegisterFailure: function () {
+        Ext.MessageBox.alert("Ошибка", "Ошибка!")
     }
 });

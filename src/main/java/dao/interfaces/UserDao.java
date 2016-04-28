@@ -3,7 +3,10 @@ package dao.interfaces;
 import java.io.Serializable;
 
 /**
- * Created by Shagi on 23.04.2016.
+ * Этот интерфейс содержит операции связанные с классом User
+ * Создание, чтение.
+ *
+ * @author shagi
  */
 public interface UserDao<T, Login extends Serializable> {
     void persist(T user);

@@ -7,27 +7,25 @@ Ext.define('MVC.controller.LoginController', {
         'MVC.view.Main'
     ],
 
-    views:[
-      'MVC.view.Login'
+    views: [
+        'MVC.view.Login'
     ],
 
     store: 'TestStore',
 
-    init : function() {
-        //control function makes it easy to listen to events on
-        //your view classes and take some action with a handler function
+    init: function () {
         this.control({
-            //when you click Submit button
-            'login button[action=login]' : {
-                click : this.onLoginClick
+            'login button[action=login]': {
+                click: this.onLoginClick
             }
         });
     },
 
+    /**
+     * Получаем данные из формы, отправляем на сервер
+     */
     onLoginClick: function (button) {
 
-        // This would be the ideal location to verify the user's credentials via
-        // a server-side lookup. We'll just move forward for the sake of this example.
         var form = button.up('form').getForm();
 
         Ext.Ajax.request({
@@ -37,9 +35,7 @@ Ext.define('MVC.controller.LoginController', {
                 loginData: Ext.encode(form.getValues())
             },
             scope: this,
-            //method to call when the request is successful
             success: this.onLoginSuccess,
-            //method to call when the request is a failure
             failure: this.onLoginFailure
         });
     },
@@ -63,19 +59,16 @@ Ext.define('MVC.controller.LoginController', {
         if (response.success) {
             Ext.MessageBox.alert('Successful Login', response.message);
 
-
+            // Загружаем данные из бд в хранилище
             var store = Ext.create('MVC.store.TestStore');
             store.load();
-
 
             this.getView().destroy();
 
             Ext.create({
                 xtype: 'main'
             });
-
-        }
-        else {
+        } else {
             Ext.MessageBox.alert('Login failed', response.message);
         }
     }
