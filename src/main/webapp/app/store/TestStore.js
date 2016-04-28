@@ -11,6 +11,12 @@ Ext.define('MVC.store.TestStore', {
     proxy: {
         type: 'rest',
         url: 'rest/notes',
+        actionMethods: {
+            create: 'POST',
+            read: 'GET',
+            update: 'PUT',
+            destroy: 'GET'
+        },
         reader: {
             type: 'json',
             rootProperty: 'data'

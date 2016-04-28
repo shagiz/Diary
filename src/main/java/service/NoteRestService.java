@@ -69,9 +69,26 @@ public class NoteRestService {
     /**
      * Удаляем запись
      */
-    @DELETE
+    @GET
     @Path("{id}")
     public Response deleteNote(@PathParam("id") String id) {
+        Note note = noteDao.getNote(Long.valueOf(id));
+        if (note == null) {
+            throw new NotFoundException();
+        }
+        noteDao.delete(Long.parseLong(id));
+        return Response.noContent().build();
+    }
+
+    /**
+     * Удаляем запись
+     *
+     * Метод не работает т.к. Ext JS proxy отправлят вместе с
+     * DELETE payload, что дает 400 Bad Requset.
+     */
+    @DELETE
+    @Path("{id}")
+    public Response deleteNoteB(@PathParam("id") String id) {
         Note note = noteDao.getNote(Long.valueOf(id));
         if (note == null) {
             throw new NotFoundException();
